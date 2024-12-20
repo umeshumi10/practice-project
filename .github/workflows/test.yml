@@ -1,5 +1,8 @@
 name: Practice
-on: push
+on: 
+    push:
+        branches:
+            - main
 jobs:
     lint:
         runs-on: ubuntu-latest
@@ -7,7 +10,7 @@ jobs:
             - name: Get Code
               uses: actions/checkout@v3
             - name: Install nodejs
-              uses: actions/steup-node@v3
+              uses: actions/setup-node@v3
               with:
                 node-version: 18
             - name: Install dependency
@@ -21,7 +24,7 @@ jobs:
             - name: Get Code
               uses: actions/checkout@v3
             - name: Install nodejs
-              uses: actions/steup-node@v3
+              uses: actions/setup-node@v3
               with:
                 node-version: 18
             - name: Install dependency
@@ -35,7 +38,7 @@ jobs:
             - name: Get Code
               uses: actions/checkout@v3
             - name: Install nodejs
-              uses: actions/steup-node@v3
+              uses: actions/setup-node@v3
               with:
                 node-version: 18
             - name: Install dependency
