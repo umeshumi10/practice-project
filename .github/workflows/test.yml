@@ -1,0 +1,47 @@
+name: Practice
+on:
+    push:
+        branches:
+            - main
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install nodejs
+              uses: actions/steup-node
+              with:
+                node-version: 18
+            - name: Install dependency
+              run: npm ci
+            - name: Lint Test
+              run: npm run lint
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install nodejs
+              uses: actions/steup-node
+              with:
+                node-version: 18
+            - name: Install dependency
+              run: npm ci
+            - name: Run Test
+              run: npm test
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install nodejs
+              uses: actions/steup-node
+              with:
+                node-version: 18
+            - name: Install dependency
+              run: npm ci
+            - name: build
+              run: npm run build
+            - name: deploy
+              run: echo "deploying ${{toJson(github)}}"
